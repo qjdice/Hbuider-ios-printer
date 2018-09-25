@@ -15,6 +15,15 @@
 		1137959B2150DFA800D56CD7 /* BLETableViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 113795982150DFA800D56CD7 /* BLETableViewController.xib */; };
 		1137959C2150DFA800D56CD7 /* BLETableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 1137959A2150DFA800D56CD7 /* BLETableViewController.m */; };
 		113795A1215102CB00D56CD7 /* BluePrinter.m in Sources */ = {isa = PBXBuildFile; fileRef = 113795A0215102CB00D56CD7 /* BluePrinter.m */; };
+		117FB28C2159DB6700377911 /* iflyMSC.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 24AFD87F1CB50CB400C0F062 /* iflyMSC.framework */; };
+		117FB28D2159DC5C00377911 /* libiflySpeech.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 24AFD88F1CB50CC100C0F062 /* libiflySpeech.a */; };
+		117FB2902159DCBD00377911 /* Contacts.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 117FB28E2159DCBD00377911 /* Contacts.framework */; };
+		117FB2912159DCBD00377911 /* ContactsUI.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 117FB28F2159DCBD00377911 /* ContactsUI.framework */; };
+		117FB2922159DCE500377911 /* BaiduMapAPI_Utils.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 2447372C1D08322900D0F08F /* BaiduMapAPI_Utils.framework */; };
+		117FB2932159DCEB00377911 /* libBaiduKeyVerify.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 24AFD8871CB50CC100C0F062 /* libBaiduKeyVerify.a */; };
+		117FB2942159DCF000377911 /* BaiduMapAPI_Base.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 244737281D08322900D0F08F /* BaiduMapAPI_Base.framework */; };
+		117FB2952159DCF700377911 /* BaiduMapAPI_Location.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 244737291D08322900D0F08F /* BaiduMapAPI_Location.framework */; };
+		117FB2962159DCFF00377911 /* BaiduMapAPI_Search.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 2447372B1D08322900D0F08F /* BaiduMapAPI_Search.framework */; };
 		11B8362421538877000045C0 /* NetWorkPrinter.m in Sources */ = {isa = PBXBuildFile; fileRef = 11B8362321538877000045C0 /* NetWorkPrinter.m */; };
 		11B8363F21539C63000045C0 /* GCDAsyncSocket.m in Sources */ = {isa = PBXBuildFile; fileRef = 11B8363B21539C63000045C0 /* GCDAsyncSocket.m */; };
 		11B8364021539C63000045C0 /* SocketManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 11B8363D21539C63000045C0 /* SocketManager.m */; };
@@ -177,6 +186,8 @@
 		1137959A2150DFA800D56CD7 /* BLETableViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = BLETableViewController.m; path = "HBuilder-Integrate/BLETableViewController.m"; sourceTree = SOURCE_ROOT; };
 		1137959F215102C300D56CD7 /* BluePrinter.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; name = BluePrinter.h; path = "HBuilder-Integrate/BluePrinter.h"; sourceTree = SOURCE_ROOT; };
 		113795A0215102CB00D56CD7 /* BluePrinter.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = BluePrinter.m; path = "HBuilder-Integrate/BluePrinter.m"; sourceTree = SOURCE_ROOT; };
+		117FB28E2159DCBD00377911 /* Contacts.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Contacts.framework; path = System/Library/Frameworks/Contacts.framework; sourceTree = SDKROOT; };
+		117FB28F2159DCBD00377911 /* ContactsUI.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = ContactsUI.framework; path = System/Library/Frameworks/ContactsUI.framework; sourceTree = SDKROOT; };
 		11B8362221538877000045C0 /* NetWorkPrinter.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = NetWorkPrinter.h; path = "HBuilder-Integrate/NetWorkPrinter.h"; sourceTree = SOURCE_ROOT; };
 		11B8362321538877000045C0 /* NetWorkPrinter.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = NetWorkPrinter.m; path = "HBuilder-Integrate/NetWorkPrinter.m"; sourceTree = SOURCE_ROOT; };
 		11B8363B21539C63000045C0 /* GCDAsyncSocket.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GCDAsyncSocket.m; sourceTree = "<group>"; };
@@ -348,6 +359,9 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				117FB2902159DCBD00377911 /* Contacts.framework in Frameworks */,
+				117FB2912159DCBD00377911 /* ContactsUI.framework in Frameworks */,
+				8EED659C198A5773000A4449 /* AddressBookUI.framework in Frameworks */,
 				7ACF69AB19FF899A007C64F1 /* CFNetwork.framework in Frameworks */,
 				240905051C200AFB0070786F /* CoreBluetooth.framework in Frameworks */,
 				24A751611D9CCDBB00C8B0F9 /* QuickLook.framework in Frameworks */,
@@ -433,7 +447,6 @@
 				8EED65A6198A626B000A4449 /* MapKit.framework in Frameworks */,
 				8EED65A0198A5789000A4449 /* Accounts.framework in Frameworks */,
 				8EED659E198A5782000A4449 /* Social.framework in Frameworks */,
-				8EED659C198A5773000A4449 /* AddressBookUI.framework in Frameworks */,
 				8EED6598198A5754000A4449 /* MessageUI.framework in Frameworks */,
 				8EED6594198A5743000A4449 /* AVFoundation.framework in Frameworks */,
 				8EED6592198A5737000A4449 /* AddressBook.framework in Frameworks */,
@@ -446,6 +459,13 @@
 				8EED6414198A262C000A4449 /* CoreMedia.framework in Frameworks */,
 				8EED6412198A2622000A4449 /* MobileCoreServices.framework in Frameworks */,
 				8EED62A0198A1D13000A4449 /* UIKit.framework in Frameworks */,
+				117FB28C2159DB6700377911 /* iflyMSC.framework in Frameworks */,
+				117FB28D2159DC5C00377911 /* libiflySpeech.a in Frameworks */,
+				117FB2922159DCE500377911 /* BaiduMapAPI_Utils.framework in Frameworks */,
+				117FB2932159DCEB00377911 /* libBaiduKeyVerify.a in Frameworks */,
+				117FB2952159DCF700377911 /* BaiduMapAPI_Location.framework in Frameworks */,
+				117FB2942159DCF000377911 /* BaiduMapAPI_Base.framework in Frameworks */,
+				117FB2962159DCFF00377911 /* BaiduMapAPI_Search.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -521,6 +541,8 @@
 		8EED629A198A1D13000A4449 /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				117FB28E2159DCBD00377911 /* Contacts.framework */,
+				117FB28F2159DCBD00377911 /* ContactsUI.framework */,
 				7AC9083420A5993D0074E34C /* libGtExtensionSdk.a */,
 				7AC9083620A599520074E34C /* liblibPDRCore.a */,
 				2430A7031E11615000D3D42D /* libcrypto.a */,
