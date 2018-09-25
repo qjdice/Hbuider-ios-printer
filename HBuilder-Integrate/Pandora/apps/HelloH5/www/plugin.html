@@ -1,0 +1,193 @@
+<!DOCTYPE HTML>
+<html>
+    <head>
+        <meta charset="utf-8"/>
+        <meta name="viewport" content="initial-scale=1.0, maximum-scale=1.0, user-scalable=no"/>
+        <meta name="HandheldFriendly" content="true"/>
+        <meta name="MobileOptimized" content="320"/>
+        <title>H5Plugin</title>
+        <script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
+        <script type="text/javascript" src="./js/common.js"></script>
+        <script type="text/javascript" src="jsaip/pdr.js"></script>>
+        <script type="text/javascript" src="js/testplugin.js"></script>
+        <script type="text/javascript" src="./js/blue.js"></script>
+        <script type="text/javascript" src="./js/network.js"></script>
+        
+        <script type="text/javascript">
+        
+        var r;
+
+        function pluginShow() {
+            plus.plugintest.PluginTestFunction("Html5","Plus","AsyncFunction","MultiArgument!", function( result ) {
+                // var arr = result.split(',');
+                console.dir(result);
+                r = result;
+            },function(result){
+            });
+        }
+        
+
+        function Test(){
+            plus.BluePrinter.Scanning(function(result){
+                console.log(result);
+            },function(err){
+                console.dir(err);
+            });
+        }
+
+        function pluginGetString()
+        {
+            alert(plus.plugintest.PluginTestFunctionSync("Html5","Plus","SyncFunction","MultiArgument!"));
+        }
+        
+        function pluginGetStringArrayArgu()
+        {
+            var Argus = plus.plugintest.PluginTestFunctionSyncArrayArgu(["Html5","Plus","SyncFunction","ArrayArgument!"]);
+            alert( Argus.RetArgu1 + "_" +  Argus.RetArgu2 + "_" + Argus.RetArgu3  + "_" + Argus.RetArgu4 );
+        }
+        
+        function PostNotification(){
+            // 通过NativeJS发送消息到原生层
+            var notiClass = plus.ios.importClass("NSNotificationCenter");
+            notiClass.defaultCenter().postNotificationNameobject("SendDataToNative","HTML Page Send Data By NJS");
+        }
+
+        function AuthenticateUser()
+        {
+            plus.plugintest.AuthenticateUser(function(message){
+                                                            alert(message.state + '------' + message.message);
+                                                            },
+                                             function(message){
+                                                            alert(message.state + '------' + message.message);
+                                                            });
+        }
+        
+            </script>
+<link rel="stylesheet" href="./css/common.css" type="text/css" charset="utf-8"/>
+</head>
+    <body>
+        <header>
+            <div class="nvtt">HBuilder-Plugin</div>
+        </header>
+        <div id="dcontent" class="dcontent">
+            <div class="button" @click="getblue">Hi</div>
+            <br/>
+            <div class="button" @click="connectbyuuid('F06AA0C2-A1E3-5D5F-E27D-1CCBD1C4D00A')">通过uuid获取</div>
+            <br/>
+            
+            <div class="button" @click="NetWork">网口测试</div>
+            <br/>
+            <div class="button" @click="SendData">测试打印</div>
+            <br/>
+            <div class="button" @click="GetConnectStatus">测试连接状态</div>
+            <br/>
+            <table>
+                <tr>
+                    <th>索引</th>
+                    <th>名称</th>
+                    <th>uuid</th>
+                </tr>
+                <tr v-for="item,index in list">
+                    <td>{{item.index}}</td>
+                    <td>{{item.name}}</td>
+                    <td @click="connect(item.index)">{{item.uuid}}</td>
+                </tr>
+            </table>
+        </div>
+    </body>
+    <script type="text/javascript">
+        var v = new Vue({
+            el:"#dcontent",
+            data(){
+                return {
+                    list:[]
+                }
+            },
+            methods:{
+                getblue(){
+                    var self = this;
+                    plus.BluePrinter.Scanning(function(result){
+                        self.list = result;
+                        console.dir(self.list);
+                    },function(err){
+                        console.dir(err);
+                    });
+                },
+                connect(index){
+                    var self = this;
+                    plus.BluePrinter.ConnectByIndex(index,function(result){
+                        if(result == 'success'){
+                            alert('连接成功');
+                        }else{
+                            alert('连接失败');
+                        }
+                    },function(err){
+                    });
+                },
+                connectbyuuid(uuid){
+                    var self = this;
+                    plus.BluePrinter.ConnectByUUID(uuid,function(result){
+                        if(result == 'success'){
+                            alert('连接成功');
+                        }else{
+                            alert('连接失败');
+                        }
+                    },function(err){
+
+                    });
+                },
+                // SendData(){
+                //     var self = this;
+                //     var data = "TEST\n";
+                //     data += "----------------\n";
+                //     data += "商品  数量  价格  \n";
+                //     data += "屁股   1   12.00 \n";
+                //     data += "桃子   23  13.00 \n";
+                //     data += "柰子   3   14.00 \n";
+                //     data += "茶壶   1   15.00 \n";
+                //     data += "----------------\n";
+                //     data += "厉害\n";
+                //     plus.BluePrinter.SendData(data,function(result){
+                //         console.dir(result);
+                //     },function(err){
+
+                //     });
+                // },
+                NetWork(){
+                    plus.NetWorkPrinter.StartConnect('192.168.10.105','9100'
+                    ,function(result){
+                        console.dir(result);
+                    },function(err){
+                        
+                    });
+                },
+                SendData(){
+                    var self = this;
+                    var data = "TEST\n";
+                    data += "----------------\n";
+                    data += "商品  数量  价格  \n";
+                    data += "屁股   1   12.00 \n";
+                    data += "桃子   23  13.00 \n";
+                    data += "柰子   3   14.00 \n";
+                    data += "茶壶   1   15.00 \n";
+                    data += "----------------\n";
+                    data += "厉害\n";
+                    plus.NetWorkPrinter.SendData(data,
+                    function(result){
+                        console.dir(result);
+                    },function(err){
+                        
+                    });
+                },
+                GetConnectStatus(){
+                    plus.NetWorkPrinter.GetConnectStatus(
+                    function(result){
+                        console.dir(result);
+                    },function(err){
+                        
+                    });
+                }
+            }
+        });
+    </script>
+</html>
