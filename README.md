@@ -6,3 +6,5 @@
 
 ---
 使用了SEPrinterManager打印类库
+
+默认加载plugin.html 可自行在ViewContoller.m中修改
