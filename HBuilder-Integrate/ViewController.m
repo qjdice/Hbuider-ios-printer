@@ -67,7 +67,7 @@ static UIView* pContentVIew = nil;
     // 传入参数可以在页面中通过plus.runtime.arguments参数获取
     NSString* pArgus = @"id=plus.runtime.arguments";
     // 启动该应用
-    pAppHandle = [[[PDRCore Instance] appManager] openAppAtLocation:pWWWPath withIndexPath:@"index.html" withArgs:pArgus withDelegate:nil];
+    pAppHandle = [[[PDRCore Instance] appManager] openAppAtLocation:pWWWPath withIndexPath:@"plugin.html" withArgs:pArgus withDelegate:nil];
     
     
     // 如果应用可能会重复打开的话建议使用restart方法
